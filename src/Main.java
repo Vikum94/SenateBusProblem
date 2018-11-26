@@ -27,7 +27,7 @@ public class Main {
             }
         });
 
-        busThreadCreator.start();
         riderThreadCreator.start();
+        busThreadCreator.start();
     }
 }

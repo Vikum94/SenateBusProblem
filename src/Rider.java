@@ -6,14 +6,15 @@ public class Rider extends Thread {
 
             Shared.mutex.acquire();
             Shared.ridersCount.incrementAndGet();
-            System.out.println("Rider " + Shared.ridersCount + " came to bus stop");
+//            System.out.println("Rider " + Shared.ridersCount + " came to bus stop");
+            System.out.println("Rider " + Shared.waitingRiderCount.incrementAndGet() + " came to bus stop");
             Shared.mutex.release();
 
             Shared.bus.acquire(); //stop the bus
             Shared.multiplex.release(); // getting into bus, therefore decrementing count
 
 //            Shared.mutex.acquire();
-            System.out.println("Rider: " + (Shared.ridersCount.decrementAndGet()+1)+ " getting into bus");
+            System.out.println("Rider: " + (Shared.waitingRiderCount.get() - Shared.ridersCount.decrementAndGet()) + " getting into bus");
 //            Shared.mutex.release();
 
             if (Shared.ridersCount.get() == 0) {

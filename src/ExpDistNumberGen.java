@@ -2,9 +2,9 @@ import java.util.Random;
 
 public class ExpDistNumberGen {
     private Random random;
-    private int mean;
+    private double mean;
 
-    public ExpDistNumberGen(int mean) {
+    public ExpDistNumberGen(double mean) {
         random = new Random();
         this.mean = mean;
     }
