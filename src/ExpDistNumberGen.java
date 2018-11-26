@@ -9,8 +9,8 @@ public class ExpDistNumberGen {
         this.mean = mean;
     }
 
-    public long getNext() {
-        float lambda = 1/mean;
-        return  (long) (Math.log(1-random.nextLong())/(lambda));
+    public double getNext() {
+        double lambda = 1.0/mean;
+        return Math.log(1-random.nextDouble())/(-lambda);
     }
 }

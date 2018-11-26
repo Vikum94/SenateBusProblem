@@ -8,7 +8,7 @@ public class Main {
             while (true) {
                 new Bus().start();
                 try {
-                    Thread.sleep(gen.getNext());
+                    Thread.sleep((long) gen.getNext());
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
@@ -20,7 +20,7 @@ public class Main {
             while (true) {
                 new Rider().start();
                 try {
-                    Thread.sleep(gen.getNext());
+                    Thread.sleep((long) gen.getNext());
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
@@ -29,7 +29,5 @@ public class Main {
 
         busThreadCreator.start();
         riderThreadCreator.start();
-
-        System.out.println("Program ends ... ");
     }
 }
